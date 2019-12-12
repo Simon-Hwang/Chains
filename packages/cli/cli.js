@@ -48,7 +48,6 @@ function parseSub(subCommandInfo, argv, originArgv) {
     let command = argv.command;
     argv.arguments.splice(0, 0, command);
     let stringArgs = {};
-
     if (subCommandInfo.args) {
         for (let index in subCommandInfo.args) {
             let arg = subCommandInfo.args[index];
@@ -107,7 +106,6 @@ function parseSub(subCommandInfo, argv, originArgv) {
                     }
                 }
             }
-            
             Promise.resolve(subCommandInfo.handler(argv));
         });
     if (needHelp) {
@@ -241,6 +239,7 @@ function main(v) {
             }
     }
 }
+// main('call HelloWorld 0x42caa2a4480cfb81af47415c6c2cccc7a6668003 set alice')
 module.exports={
     main
 }
